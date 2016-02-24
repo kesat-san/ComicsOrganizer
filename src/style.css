@@ -5,6 +5,7 @@
 .leftside
 {
     width:20%;
+    height:100%;
     float:left;
     font-size:16px;
 }
@@ -12,4 +13,16 @@
 {
     width:80;
     float:left;
+}
+.seriesList
+{
+    height:200px;
+    width:200px;
+    
+}
+.header
+{
+    font-size:20px;
+    font-weight:bold;
+    text-align:center;
 }

@@ -2,16 +2,37 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function()
+            {
+                
+                $.getJSON( "/webservice/getSeriesList.php", function( data ) 
+                {
+                    var items = [];
+                    $.each( data, function( key, val )
+                    {
+                        alert(val.SeriesName);
+                        items.push( "<option id='" + val.id + "'>" + val.SeriesName + "</option>" );
+                    });
+                    var all = items.join("");
+                   // alert(all);
+                    $("#seriesList").append(all); 
+                }
+            );
+            });
+        </script>
         <title>Comics Organizer</title>
     </head>
     <body>
+        <div class="header">
+            Comics Organizer .001
+        </div>
         <div class="container">
             <div class="leftside">
-                <input class="seriesList" type="listbox">
-                    <option>Superman</option>
-                    <option>Batman</option>
-                </input>
+                <div style="font-weight:bold">Series List</div>
+                <select size=100 id="seriesList" class="seriesList">
+                </select>
             </div>
             <div class="rightside">
                 This is the right side
